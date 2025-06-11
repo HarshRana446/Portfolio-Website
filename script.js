@@ -1,5 +1,11 @@
+// Typing Text Effect
 const typingText = document.getElementById("typing-text");
-const textArray = ["Student", "Web Developer", "Open Source Enthusiast", "React & Node.js Lover"];
+const textArray = [
+  "Student",
+  "Web Developer",
+  "Open Source Enthusiast",
+  "React & Node.js Lover",
+];
 let index = 0;
 let charIndex = 0;
 let currentText = "";
@@ -28,3 +34,19 @@ function typeEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", typeEffect);
+
+// Custom Cursor Logic
+const customCursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove", (e) => {
+  customCursor.style.top = e.clientY + "px";
+  customCursor.style.left = e.clientX + "px";
+});
+
+document.addEventListener("mousedown", () => {
+  customCursor.style.transform = "translate(-50%, -50%) scale(1.5)";
+});
+
+document.addEventListener("mouseup", () => {
+  customCursor.style.transform = "translate(-50%, -50%) scale(1)";
+});
