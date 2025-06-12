@@ -1,19 +1,11 @@
-// Typing Text Effect
+// Typing Effect
 const typingText = document.getElementById("typing-text");
-const textArray = [
-  "Student",
-  "Web Developer",
-  "Open Source Enthusiast",
-  "React & Node.js Lover",
-];
-let index = 0;
-let charIndex = 0;
-let currentText = "";
-let isDeleting = false;
+const textArray = ["Student", "Web Developer", "Open Source Enthusiast", "React & Node.js Lover"];
+let index = 0, charIndex = 0, isDeleting = false;
 
 function typeEffect() {
   if (index >= textArray.length) index = 0;
-  currentText = textArray[index];
+  let currentText = textArray[index];
 
   if (isDeleting) {
     typingText.textContent = currentText.substring(0, charIndex--);
@@ -32,21 +24,26 @@ function typeEffect() {
 
   setTimeout(typeEffect, isDeleting ? 50 : 150);
 }
-
 document.addEventListener("DOMContentLoaded", typeEffect);
 
-// Custom Cursor Logic
-const customCursor = document.querySelector(".cursor");
+const aboutSection = document.querySelector(".about .container");
 
+function revealAbout() {
+  const scrollPos = window.scrollY + window.innerHeight;
+  const aboutPos = aboutSection.offsetTop + aboutSection.clientHeight / 2;
+
+  if (scrollPos > aboutPos) {
+    aboutSection.style.opacity = 1;
+    aboutSection.style.transform = "translateY(0)";
+  }
+}
+
+window.addEventListener("scroll", revealAbout);
+
+
+// Custom Cursor
+const cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", (e) => {
-  customCursor.style.top = e.clientY + "px";
-  customCursor.style.left = e.clientX + "px";
-});
-
-document.addEventListener("mousedown", () => {
-  customCursor.style.transform = "translate(-50%, -50%) scale(1.5)";
-});
-
-document.addEventListener("mouseup", () => {
-  customCursor.style.transform = "translate(-50%, -50%) scale(1)";
+  cursor.style.top = e.clientY + "px";
+  cursor.style.left = e.clientX + "px";
 });
