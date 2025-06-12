@@ -33,7 +33,8 @@ This site showcases my projects, skills, and web development journey. It's built
 
 ## 📸 Preview
 
-![Portfolio Preview](https://user-images.githubusercontent.com/yourusername/yourimage.png)
+![Image](https://github.com/user-attachments/assets/48d33cf3-8e82-47ad-b4df-1ecc7f4c9581)
+![Image](https://github.com/user-attachments/assets/251036fc-cb9e-4f55-b87a-12efb8a12d3a)
 
 ---
 
