@@ -1,17 +1,21 @@
-// Typing Effect
 const typingText = document.getElementById("typing-text");
-const textArray = ["Student", "Web Developer", "Open Source Enthusiast", "React & Node.js Lover"];
-let index = 0, charIndex = 0, isDeleting = false;
+const textArray = [
+  "Student",
+  "Web Developer",
+  "Open Source Enthusiast",
+  "React & Node.js Lover",
+];
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
 
 function typeEffect() {
-  if (index >= textArray.length) index = 0;
-  let currentText = textArray[index];
-
+  const currentText = textArray[index];
   if (isDeleting) {
     typingText.textContent = currentText.substring(0, charIndex--);
     if (charIndex < 0) {
       isDeleting = false;
-      index++;
+      index = (index + 1) % textArray.length;
     }
   } else {
     typingText.textContent = currentText.substring(0, charIndex++);
@@ -21,10 +25,11 @@ function typeEffect() {
       return;
     }
   }
-
-  setTimeout(typeEffect, isDeleting ? 50 : 150);
+  setTimeout(typeEffect, isDeleting ? 50 : 120);
 }
+
 document.addEventListener("DOMContentLoaded", typeEffect);
+
 
 const aboutSection = document.querySelector(".about .container");
 
@@ -40,10 +45,39 @@ function revealAbout() {
 
 window.addEventListener("scroll", revealAbout);
 
+// Animate Projects on Scroll
+const animateItems = document.querySelectorAll(".animate");
+
+function showOnScroll() {
+  animateItems.forEach((item) => {
+    const itemTop = item.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (itemTop < windowHeight - 100) {
+      item.classList.add("visible");
+    }
+  });
+}
+
+window.addEventListener("scroll", showOnScroll);
+document.addEventListener("DOMContentLoaded", showOnScroll);
+
+
 
 // Custom Cursor
 const cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", (e) => {
   cursor.style.top = e.clientY + "px";
   cursor.style.left = e.clientX + "px";
+});
+
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Message sent successfully!');
+});
+
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader-wrapper");
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
+  setTimeout(() => loader.style.display = "none", 500);
 });

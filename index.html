@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Harsh Rana | Portfolio</title>
+  <script src="https://kit.fontawesome.com/a2e0f3c9cc.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,13 +16,25 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Hi, I'm <span class="highlight">Harsh Rana</span></h1>
-      <h2><span id="typing-text"></span></h2>
-      <p>Passionate Web Developer | JavaScript, React, Node.js</p>
-      <a href="#projects" class="btn">View My Projects</a>
-    </div>
-  </section>
+  <div class="floating-blobs">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+  </div>
+
+  <div class="hero-content">
+    <h1 class="hero-title">
+      Hi, I'm <span class="highlight">Harsh Rana</span>
+    </h1>
+    <h2 class="hero-subtitle">
+      <span id="typing-text"></span>
+    </h2>
+    <p class="hero-desc">
+      Passionate Web Developer | JavaScript, React, Node.js
+    </p>
+    <a href="#projects" class="btn">🚀 View My Projects</a>
+  </div>
+</section>
+
 
   <!-- About Section -->
 <section id="about" class="about">
@@ -92,41 +107,108 @@
 
 
   <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <div class="container">
-      <h2 class="section-title">✨ Projects Showcase</h2>
-
-      <div class="project-card">
-        <div class="project-img">
-          <img src="images/project-2.png" alt="E-Commerce Backend">
-        </div>
-        <div class="project-content">
-          <h3>E-Commerce Backend API</h3>
+<section id="projects" class="projects">
+  <div class="container">
+    <h2 class="section-title">✨ Featured Projects</h2>
+    <div class="projects-grid">
+      
+      <!-- Project Card 1 -->
+      <div class="project-card animate">
+        <img src="images/project-1.png" alt="Food Delivery Website" />
+        <div class="project-info">
+          <h3>🍽️ Food Delivery WebApp</h3>
           <p>
-            A fully-featured e-commerce backend built with Node.js and MongoDB.
-            Supports user authentication, product management, order tracking, and admin dashboards.
-            Designed for scalable and secure online stores.
+            A fully responsive food delivery website built with HTML, CSS, and JavaScript.
+            Features live order tracking, animated menu UI, user authentication, and an interactive checkout system.
           </p>
-          <a href="#" class="btn">View Project</a>
+          <a href="#" target="_blank" class="btn">🔗 View Live</a>
         </div>
       </div>
 
-      <div class="project-card">
-        <div class="project-img">
-          <img src="images/project-1.png" alt="Food Delivery App">
-        </div>
-        <div class="project-content">
-          <h3>Food Delivery Website</h3>
+      <!-- Project Card 2 -->
+      <div class="project-card animate">
+        <img src="images/project-2.png" alt="JavaScript Compiler" />
+        <div class="project-info">
+          <h3>🛠️ Mini JavaScript Compiler</h3>
           <p>
-            A modern and interactive food delivery web app using React and Firebase.
-            Features include real-time order updates, restaurant listings, and sleek UI animations.
-            Fully responsive and optimized for performance.
+            A browser-based compiler for JavaScript enthusiasts. Includes a real-time lexical analyzer, token classification, syntax highlighter, and error detection panel.
           </p>
-          <a href="#" class="btn">View Project</a>
+          <a href="#" target="_blank" class="btn">🔗 Check it Out</a>
         </div>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="contact-description">Have a project idea, freelance work, or just want to chat? Drop me a message!</p>
+
+    <form class="contact-form">
+  <div class="form-group">
+  <input type="text" name="name" required>
+  <label>Your Name</label>
+</div>
+
+<div class="form-group">
+  <input type="email" name="email" required>
+  <label>Your Email</label>
+</div>
+
+<div class="form-group">
+  <textarea name="message" rows="5" required></textarea>
+  <label>Your Message</label>
+</div>
+
+<button type="submit" class="contact-btn">Send Message</button>
+    </form>
+
+    <div class="social-links">
+      <a href="https://github.com/HarshRana446" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="ranaharsh669@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+</section>
+
+<section id="github" class="github-section">
+  <div class="container">
+    <h2 class="section-title">GitHub Contributions</h2>
+    <p class="github-description">My recent activity and contributions on GitHub.</p>
+
+    <div class="github-graph animated-container">
+      <img src="https://ghchart.rshah.org/FF008C/HarshRana446" alt="Harsh Rana's GitHub Contribution Graph">
+    </div>
+
+    <a href="https://github.com/HarshRana446" class="btn github-btn" target="_blank">Visit My GitHub Profile</a>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 Harsh Rana. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="https://github.com/HarshRana446" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/harshrana446" target="_blank">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://instagram.com/harshrana446" target="_blank">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div id="loader-wrapper">
+  <div class="loader"></div>
+</div>
+
 
   <script src="script.js"></script>
 </body>

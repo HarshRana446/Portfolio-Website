@@ -17,52 +17,142 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Hero Section */
 .hero {
+  position: relative;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+  background: #0d1117;
+  overflow: hidden;
   padding: 0 20px;
 }
 
-.hero-content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+/* Floating blobs background */
+.floating-blobs .blob {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  filter: blur(60px);
+  z-index: 0;
 }
 
-.hero-content .highlight {
+.blob1 {
+  width: 300px;
+  height: 300px;
+  background: #00FFCA;
+  top: 10%;
+  left: -100px;
+  animation: blobFloat 8s ease-in-out infinite;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: #FF008C;
+  bottom: 5%;
+  right: -150px;
+  animation: blobFloatReverse 10s ease-in-out infinite;
+}
+
+@keyframes blobFloat {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-60px) translateX(30px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+@keyframes blobFloatReverse {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(40px) translateX(-50px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* Hero Content Styling */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-size: 60px;
+  margin-bottom: 16px;
+  color: #fff;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.hero-title .highlight {
   color: #00FFCA;
 }
 
-.hero-content h2 {
+.hero-subtitle {
   font-size: 28px;
   color: #bbb;
   margin-bottom: 20px;
+  animation: fadeInUp 1.3s ease forwards;
 }
 
-.hero-content p {
+.hero-desc {
   font-size: 18px;
   color: #aaa;
   margin-bottom: 30px;
+  animation: fadeInUp 1.6s ease forwards;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 16px 36px;
   color: #0d1117;
   background: #00FFCA;
   text-decoration: none;
-  border-radius: 8px;
-  transition: 0.3s;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: 0.6s ease;
+  z-index: 0;
+}
+
+.btn:hover::before {
+  width: 400px;
+  height: 400px;
 }
 
 .btn:hover {
-  background: #04ffc9e6;
+  background: #00ffc9e6;
+  box-shadow: 0 0 30px rgba(0, 255, 202, 0.5);
+  transform: translateY(-3px);
 }
 
-/* About Me Section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
 /* About Section */
 .about {
   padding: 100px 20px;
@@ -225,116 +315,104 @@ html {
   100% { transform: translateY(0px); }
 }
 
+/* Projects Section */
 .projects {
   padding: 100px 20px;
-  background-color: #161b22;
+  background-color: #0d1117;
   text-align: center;
 }
 
 .projects .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .projects .section-title {
-  font-size: 42px;
+  font-size: 48px;
+  margin-bottom: 70px;
   color: #00FFCA;
-  margin-bottom: 50px;
 }
 
+/* Projects Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 35px;
+}
+
+/* Project Card */
 .project-card {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 60px;
-  background: #0d1117;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 0 30px #00ffca20;
-  transition: 0.5s ease;
-  transform: scale(1);
-  position: relative;
+  box-shadow: 0 10px 35px rgba(0, 255, 202, 0.05);
+  transition: 0.4s ease;
+  transform: translateY(50px);
+  opacity: 0;
 }
 
+/* Floating Shape Glow on Hover */
 .project-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 45px #00ffca40;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 0 30px rgba(0, 255, 202, 0.3), 0 0 80px rgba(0, 255, 202, 0.1);
 }
 
-.project-img {
-  flex: 1 1 400px;
-  overflow: hidden;
-}
-
-.project-img img {
+/* Project Image */
+.project-card img {
   width: 100%;
-  height: 100%;
+  height: 250px;
   object-fit: cover;
-  transition: transform 0.6s ease;
+  display: block;
 }
 
-.project-card:hover .project-img img {
-  transform: scale(1.05);
+/* Project Info */
+.project-info {
+  padding: 30px 25px;
 }
 
-.project-content {
-  flex: 1 1 400px;
-  padding: 40px;
-  text-align: left;
-}
-
-.project-content h3 {
-  font-size: 32px;
+.project-info h3 {
+  font-size: 28px;
   color: #00FFCA;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-.project-content p {
+.project-info p {
   font-size: 18px;
   color: #ccc;
-  line-height: 1.8;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  line-height: 1.7;
 }
 
-.project-content .btn {
-  padding: 12px 26px;
+/* Project Button */
+.project-info .btn {
+  display: inline-block;
+  padding: 14px 30px;
   background: #00FFCA;
   color: #0d1117;
-  border-radius: 8px;
   text-decoration: none;
-  transition: 0.3s;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: 0.3s ease;
 }
 
-.project-content .btn:hover {
+.project-info .btn:hover {
   background: #04ffc9e6;
+  box-shadow: 0 0 20px rgba(0, 255, 202, 0.4);
 }
 
-/* Magic Glow */
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  background: linear-gradient(45deg, #00ffca, #ff008c, #00ffca, #ff008c);
-  background-size: 600% 600%;
-  border-radius: 20px;
-  z-index: -1;
-  filter: blur(10px);
-  opacity: 0;
-  transition: opacity 0.4s;
+/* Animate on Scroll */
+.animate {
+  transition: all 1s ease;
 }
 
-.project-card:hover::before {
-  opacity: 0.4;
-  animation: glow 8s ease infinite;
+.animate.visible {
+  transform: translateY(0);
+  opacity: 1;
 }
 
-@keyframes glow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+
 
 /* Custom Cursor */
 .cursor {
@@ -351,4 +429,259 @@ html {
   transition: all 0.15s ease;
   mix-blend-mode: difference;
   box-shadow: 0 0 10px #00FFCA, 0 0 20px #00FFCA;
+}
+
+/* Contact Section Styling */
+/* Contact Section Styling */
+.contact {
+  padding: 80px 20px;
+  background-color: #0d1117;
+  text-align: center;
+}
+
+.contact .container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #00FFCA;
+}
+
+.contact-description {
+  font-size: 18px;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+/* Contact Form Styling */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 18px 15px;
+  background: #161b22;
+  border: 2px solid #00FFCA;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #FF008C;
+  box-shadow: 0 0 8px #FF008C;
+}
+
+/* Floating Labels (No placeholder needed) */
+.form-group label {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+  color: #888;
+  font-size: 16px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+  background: #161b22;
+  padding: 0 6px;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group input:not([value=""]) + label,
+.form-group textarea:focus + label,
+.form-group textarea:not(:placeholder-shown) + label,
+.form-group textarea:not([value=""]) + label {
+  top: -12px;
+  left: 12px;
+  font-size: 12px;
+  color: #00FFCA;
+}
+
+/* Contact Button */
+.contact-btn {
+  background: #00FFCA;
+  color: #0d1117;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #b1c709;
+  color: #fff;
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  font-size: 28px;
+  color: #00FFCA;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #c2bf22;
+}
+
+/* GitHub Section */
+.github-section {
+  padding: 100px 20px;
+  background: linear-gradient(145deg, #0d1117, #1a1f2b);
+  text-align: center;
+  overflow: hidden;
+}
+
+.github-section .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.github-section .section-title {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #00C9A7;
+}
+
+.github-description {
+  font-size: 19px;
+  color: #bbb;
+  margin-bottom: 35px;
+}
+
+/* Graph Container Animation */
+.animated-container {
+  background: #161b22;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(47, 128, 237, 0.3);
+  margin-bottom: 35px;
+  animation: fadeInUp 1.5s ease both;
+}
+
+.github-graph img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #00C9A7;
+}
+
+/* Button Styling */
+.github-btn {
+  background: linear-gradient(135deg, #00C9A7, #2F80ED);
+  color: #0d1117;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(0, 201, 167, 0.3);
+}
+
+.github-btn:hover {
+  background: linear-gradient(135deg, #2F80ED, #00C9A7);
+  color: #fff;
+  transform: translateY(-4px) scale(1.05);
+}
+
+/* Fade In Animation Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Footer Section */
+.footer {
+  background: linear-gradient(135deg, #0d1117, #1a1f2b);
+  padding: 30px 20px;
+  text-align: center;
+  color: #bbb;
+  margin-top: 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.footer p {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+}
+
+.footer .social-icons a {
+  font-size: 22px;
+  color: #00C9A7;
+  transition: all 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+  color: #2F80ED;
+  transform: scale(1.2);
+}
+/* Loader */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0d1117;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 8px solid #333;
+  border-top: 8px solid #00ffca;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
