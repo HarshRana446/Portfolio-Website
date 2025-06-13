@@ -279,7 +279,7 @@ html {
   max-width: 180px;
   font-size: 15px;
   color: #eee;
-  box-shadow: 0 0 14px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 14px rgba(182, 129, 129, 0.05);
   transition: all 0.4s ease;
   opacity: 0;
   transform: translateY(40px);
@@ -336,6 +336,35 @@ html {
     width: 22px;
     height: 22px;
   }
+}
+.skills::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  animation: float 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(20px) translateX(20px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Ensure content sits above animation overlay */
+.skills .container {
+  position: relative;
+  z-index: 1;
 }
 
 
