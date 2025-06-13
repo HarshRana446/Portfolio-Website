@@ -233,87 +233,112 @@ html {
 
 
 /* Skills Section */
+/* Skills Section Styling */
 .skills {
-  padding: 80px 20px;
-  background-color: #0d1117;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  color: #fff;
   text-align: center;
-}
-
-.skills .container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.skill-card {
-  background: #161b22;
-  padding: 20px;
-  border-radius: 18px;
-  border: 2px solid rgba(0, 255, 202, 0.4);
-  transition: all 0.3s ease;
-  color: #00FFCA;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0 8px rgba(0, 255, 202, 0.2);
-  position: relative;
   overflow: hidden;
 }
 
-/* Icon inside card */
-.skill-card img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 15px;
-  filter: drop-shadow(0 0 4px #00FFCA);
+.skills .section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Label under icon */
-.skill-card span {
-  font-size: 18px;
-  font-weight: 600;
+.skill-category {
+  margin-bottom: 40px;
 }
 
-/* Glowing border animation on hover */
-.skill-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  background: linear-gradient(45deg, #00FFCA, #FF008C, #00FFCA);
+.skill-category h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #f7f7f7;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 140px;
+  max-width: 180px;
+  font-size: 15px;
+  color: #eee;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
   opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 0.9s forwards;
 }
 
-/* On hover effect */
-.skill-card:hover::before {
-  opacity: 0.12;
+.skill-card img {
+  width: 26px;
+  height: 26px;
 }
 
+/* Hover Animation */
 .skill-card:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 0 20px #00FFCA, 0 0 35px rgba(0, 255, 202, 0.35);
-  border-color: #00FFCA;
-  color: #00FFCA;
+  transform: translateY(-10px) scale(1.06);
+  background: linear-gradient(135deg, #12c2e9, #c471ed, #f64f59);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.12);
 }
 
-.skill-card:hover img {
-  filter: drop-shadow(0 0 12px #00FFCA);
+/* Fade In Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animate cards on load sequentially */
+.skill-card:nth-child(1) { animation-delay: 0.1s; }
+.skill-card:nth-child(2) { animation-delay: 0.2s; }
+.skill-card:nth-child(3) { animation-delay: 0.3s; }
+.skill-card:nth-child(4) { animation-delay: 0.4s; }
+.skill-card:nth-child(5) { animation-delay: 0.5s; }
+.skill-card:nth-child(6) { animation-delay: 0.6s; }
+.skill-card:nth-child(7) { animation-delay: 0.7s; }
+.skill-card:nth-child(8) { animation-delay: 0.8s; }
+.skill-card:nth-child(9) { animation-delay: 0.9s; }
+
+/* Compact on desktop */
+@media (min-width: 768px) {
+  .skills {
+    padding: 40px 0;
+  }
+  .skills-grid {
+    gap: 14px;
+  }
+  .skill-card {
+    min-width: 130px;
+    max-width: 160px;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+  .skill-card img {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0px); }
-}
 
 /* Projects Section */
 .projects {
@@ -431,7 +456,7 @@ html {
   box-shadow: 0 0 10px #00FFCA, 0 0 20px #00FFCA;
 }
 
-/* Contact Section Styling */
+
 /* Contact Section Styling */
 .contact {
   padding: 80px 20px;
@@ -531,6 +556,7 @@ html {
   background: #b1c709;
   color: #fff;
 }
+
 
 /* Social Icons */
 .social-links {
