@@ -372,7 +372,6 @@ html {
 /* Projects Section */
 .projects {
   padding: 100px 20px;
-  background-color: #0d1117;
   text-align: center;
 }
 
@@ -489,7 +488,6 @@ html {
 /* Contact Section Styling */
 .contact {
   padding: 80px 20px;
-  background-color: #0d1117;
   text-align: center;
 }
 
@@ -608,7 +606,6 @@ html {
 /* GitHub Section */
 .github-section {
   padding: 100px 20px;
-  background: linear-gradient(145deg, #0d1117, #1a1f2b);
   text-align: center;
   overflow: hidden;
 }
@@ -746,4 +743,47 @@ body {
 }
 h1, h2, h3 {
   font-family: 'Space Grotesk', sans-serif;
+}
+
+.hero, #about {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+}
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  background: #000;
+}
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+#skills, #projects, #contact {
+  background: rgba(10, 10, 10, 0.9);
+  position: relative;
+  z-index: 2;
+  padding: 60px 20px;
+}
+#earth-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
