@@ -33,9 +33,8 @@ This site showcases my projects, skills, and web development journey. It's built
 
 ## 📸 Preview
 
-![Image](https://github.com/user-attachments/assets/48d33cf3-8e82-47ad-b4df-1ecc7f4c9581)
-![Image](https://github.com/user-attachments/assets/251036fc-cb9e-4f55-b87a-12efb8a12d3a)
-
+![Image](https://github.com/user-attachments/assets/6ad689d4-c440-40c3-b03f-d4efe51bf32f)
+![Image](https://github.com/user-attachments/assets/8124aa43-fb8d-44f9-b8bc-1695d50a2621)
 ---
 
 ## 📁 Project Structure
