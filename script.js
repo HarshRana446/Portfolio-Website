@@ -30,7 +30,6 @@ function typeEffect() {
 
 document.addEventListener("DOMContentLoaded", typeEffect);
 
-
 const aboutSection = document.querySelector(".about .container");
 
 function revealAbout() {
@@ -61,8 +60,6 @@ function showOnScroll() {
 window.addEventListener("scroll", showOnScroll);
 document.addEventListener("DOMContentLoaded", showOnScroll);
 
-
-
 // Custom Cursor
 const cursor = document.querySelector(".cursor");
 document.addEventListener("mousemove", (e) => {
@@ -70,14 +67,14 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.left = e.clientX + "px";
 });
 
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  alert('Message sent successfully!');
-});
+document
+  .querySelector(".contact-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Message sent successfully!");
+  });
 
+// Hide loader after page load
 window.addEventListener("load", () => {
-  const loader = document.getElementById("loader-wrapper");
-  loader.style.opacity = "0";
-  loader.style.pointerEvents = "none";
-  setTimeout(() => loader.style.display = "none", 500);
+  document.getElementById("loader").style.display = "none";
 });
