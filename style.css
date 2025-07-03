@@ -248,6 +248,7 @@ html {
   margin-bottom: 30px;
   background: linear-gradient(90deg, #ff6a00, #ee0979);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
